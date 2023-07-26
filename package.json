@@ -1,0 +1,19 @@
+{
+  "name": "react-practice",
+  "version": "1.0.0",
+  "description": "This is a practice file",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhargava16623/react-practice.git"
+  },
+  "author": "Bhargava ram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhargava16623/react-practice/issues"
+  },
+  "homepage": "https://github.com/bhargava16623/react-practice#readme"
+}
