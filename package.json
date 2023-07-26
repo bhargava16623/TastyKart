@@ -2,9 +2,11 @@
   "name": "react-practice",
   "version": "1.0.0",
   "description": "This is a practice file",
-  "main": "App.js",
+  "source": "index.html",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start":"parcel",
+    "build":"parcel build --dist-dir public"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,16 @@
   "bugs": {
     "url": "https://github.com/bhargava16623/react-practice/issues"
   },
-  "homepage": "https://github.com/bhargava16623/react-practice#readme"
+  "homepage": "https://github.com/bhargava16623/react-practice#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }
