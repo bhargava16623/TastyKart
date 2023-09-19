@@ -1,3 +1,163 @@
-#container{
-    background-color: aqua;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border: 2px solid black;
 }
+
+.header > a{
+    width: fit-content;
+    margin-top: 15px;
+    margin-left: 50px;
+    color: black;
+}
+
+.li-col{
+   color: black;
+}
+
+a:link{
+    color: rgb(10, 10, 10);
+   background-color: transparent;
+  text-decoration: none;
+}
+
+.header > ul{
+    list-style-type: none;
+    display: flex;
+    margin-right: 10px;
+}
+
+.header > ul > li{
+    padding: 30px;
+    font-size: x-large;
+    color: black;
+}
+
+.heading{
+    padding-left: 7.8%;
+}
+
+.card{
+    width:300px;
+    padding: 40px;
+    margin: 20px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    
+}
+
+.card > img{
+    width:113.2%;
+    height: 300px;
+    object-fit: cover;
+    margin-top: -6.5%;
+    margin-left: -6.5%;
+}
+
+.body-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.search-container{
+    padding-left: 7.8%;
+}
+
+.shimmer-card{
+    height: 300px;
+    background-color: #ccc;
+}
+
+.init-button{
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    margin: 0 10px;
+    width: 150px;
+    padding: 10px 0;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+    transition: 0.4s;
+    color: rgb(104, 85, 224);
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(104, 85, 224, 1);
+
+  }
+  button:hover {
+    color: white;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+    background-color: rgba(104, 85, 224, 1);
+  }
+
+  .zoom {
+    transition: transform .2s; /* Animation */
+/*  }
+
+  .zoom:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+ /* }
+
+  .menu-img{
+    width: 20%;
+    border: 1px solid black;
+
+  }
+
+  .menu-body{
+    display: flex;
+  }
+
+  .link-col{
+    color: black;
+  }
+
+  .signup-box{
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    width: 400px;
+    height: 400px;
+    background-color: #ffffff;
+    padding: 10px 30px;
+  }
+
+  .form-input {
+    margin: 10px;
+    margin-left: -4px;
+    width: 90%;
+    background-color: #e2e2e2;
+    border: none;
+    outline: none;
+    padding: 16px 20px;
+    border-radius: 4px;
+  }
+  
+  .form-button {
+    background-color: #4796ff;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    padding: 8px 15px;
+    width: 80%;
+    margin-top: 4px;
+    margin-left: 22px;
+  }
+
+  .container-signup{
+  height: 70vh;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+ 
+  }*/
+
+  
