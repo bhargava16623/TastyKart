@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { Header } from "./components/Title";
 import Body from "./components/Body";
@@ -9,8 +9,10 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import SignupForm from "./components/Signup";
-
-
+import Cart from "./components/Cart";
+import UserContext from "./Utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./Utils/store";
 
 /**
  *     header
@@ -25,10 +27,20 @@ import SignupForm from "./components/Signup";
 
 const Applayout = ()=> {
     
+    const [user,setUser]=useState({
+      name:"",
+      email:"",
+    })
+    
+
      return(
       <>
-         <Header/>
-         <Outlet/>
+         <Provider store={store}>
+            <UserContext.Provider value={{user:user,setUser:setUser}}>
+               <Header/>
+               <Outlet/>
+            </UserContext.Provider>
+         </Provider>
          <Footer/>
       </>
      );
@@ -59,6 +71,10 @@ const appRouter = createBrowserRouter([
          {
             path:"/signup",
             element:<SignupForm/>,
+         },
+         {
+            path:"/cart",
+            element:<Cart/>,
          },
       ]
     },

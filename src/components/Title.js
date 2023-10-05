@@ -1,11 +1,25 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import logo from '../assets/imagesprac/logo.png';
-
+import UserContext from '../Utils/UserContext';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser,faCartShopping} from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from 'react-redux';
+
 
 export const Header = ()=>{
 
   const [loggedIn,setLoggedIn]= useState(true);
+  const {user,setUser}=useContext(UserContext);
+  
+  const cartItems = useSelector(store=> store.cart.items);
+
+  const logoutfunc=()=>{
+    setLoggedIn(true);
+    setUser({name:"",email:"",});
+  };
+
+ 
 
     return(
      <>
@@ -17,7 +31,10 @@ export const Header = ()=>{
           <li className=" px-8 text-2xl"><Link to='/' className='li-col'>Home</Link></li>
           <li className=" px-8 text-2xl"><Link to='/about' className='li-col'>About</Link></li>
           <li className=" px-8 text-2xl"><Link to='/contact' className='li-col'>Contact</Link></li>
-          <li className=" px-8 text-2xl"><Link to='/' className='li-col'>Cart</Link></li>
+          {cartItems.length<1?
+          <li className=" px-8 text-2xl"><Link to='/cart' className='li-col'><FontAwesomeIcon icon={faCartShopping} flip="horizontal" style={{color: "#241f31",}} /></Link></li>:
+          <li className=" px-8 text-2xl"><Link to='/cart' className='li-col '><span className="font-bold text-white bg-red-500 border rounded-full px-2">{cartItems.length}</span> <FontAwesomeIcon icon={faCartShopping} flip="horizontal" style={{color: "#33d17a",}}/></Link></li>
+          }
           <li className=" px-8 text-2xl">
             {loggedIn?
                <Link to='/signup' className='li-col'>
@@ -25,10 +42,12 @@ export const Header = ()=>{
                  Log In
               </button></Link>:
               <Link to='/' className='li-col'>
-              <button className='init-button' onClick={()=>{setLoggedIn(true)}}>
+              <button className='init-button' onClick={()=>logoutfunc()}>
                 Log Out
               </button></Link>}
           </li>
+          <li className=" px-4 text-2xl"><FontAwesomeIcon icon={faUser} /></li>
+          <li className="text-2xl">{user.name}</li>
         </ul>
         
        </div>
