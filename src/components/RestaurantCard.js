@@ -4,7 +4,7 @@ const Restaurantcard=({name,avgRating,cloudinaryImageId,cuisines,areaName})=>{
    
     return (
       <>
-       <div className="w-80 mx-10 my-5 border border-gray-100 shadow-lg">
+       <div  className="w-80 mx-10 my-5 border border-gray-100 shadow-lg">
           <img src={IMG_CDN_URL
           +cloudinaryImageId} className="object-cover h-80 w-80"/>
            {

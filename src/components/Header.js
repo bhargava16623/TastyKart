@@ -13,6 +13,7 @@ export const Header = ()=>{
   const {user,setUser}=useContext(UserContext);
   
   const cartItems = useSelector(store=> store.cart.items);
+  const {totalitems}=useSelector(store=>store.cart);
 
   const logoutfunc=()=>{
     setLoggedIn(true);
@@ -25,15 +26,15 @@ export const Header = ()=>{
      <>
       <div className="flex py-4 justify-between bg-pink-50 border-b border-gray-300 shadow-lg my-2 mx-2">
        <a className=" px-12 " href="/">
-        <img className=" h-20" src={logo} alt="logo"/>
+        <img data-testid="logo" className=" h-20" src={logo} alt="logo"/>
        </a>
         <ul className="flex py-6 px-10">
           <li className=" px-8 text-2xl"><Link to='/' className='li-col'>Home</Link></li>
           <li className=" px-8 text-2xl"><Link to='/about' className='li-col'>About</Link></li>
           <li className=" px-8 text-2xl"><Link to='/contact' className='li-col'>Contact</Link></li>
           {cartItems.length<1?
-          <li className=" px-8 text-2xl"><Link to='/cart' className='li-col'><FontAwesomeIcon icon={faCartShopping} flip="horizontal" style={{color: "#241f31",}} /></Link></li>:
-          <li className=" px-8 text-2xl"><Link to='/cart' className='li-col '><span className="font-bold text-white bg-red-500 border rounded-full px-2">{cartItems.length}</span> <FontAwesomeIcon icon={faCartShopping} flip="horizontal" style={{color: "#33d17a",}}/></Link></li>
+          <li className=" px-8 text-2xl"><Link   to='/cart' className='li-col'><FontAwesomeIcon title="cart" icon={faCartShopping} flip="horizontal" style={{color: "#241f31",}} /></Link></li>:
+          <li className=" px-8 text-2xl"><Link to='/cart' className='li-col '><span data-testid="cart" className="font-bold text-white bg-red-500 border rounded-full px-2">{totalitems}</span> <FontAwesomeIcon icon={faCartShopping} flip="horizontal" style={{color: "#33d17a",}}/></Link></li>
           }
           <li className=" px-8 text-2xl">
             {loggedIn?
@@ -46,7 +47,7 @@ export const Header = ()=>{
                 Log Out
               </button></Link>}
           </li>
-          <li className=" px-4 text-2xl"><FontAwesomeIcon icon={faUser} /></li>
+          <li className=" px-4 text-2xl"><FontAwesomeIcon title="user" icon={faUser} /></li>
           <li className="text-2xl">{user.name}</li>
         </ul>
         

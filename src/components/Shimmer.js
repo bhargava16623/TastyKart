@@ -5,7 +5,7 @@ const mapped= Array.from({length:10}).map((el,i)=>{
 const Shimmer =()=>{
     /*return <h1>Loading...... </h1>*/
     return (
-    <div className="body-div">
+    <div role="shimmer-id" className="body-div">
        {
         mapped
        }

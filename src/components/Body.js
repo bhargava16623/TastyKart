@@ -26,7 +26,6 @@ const Body=()=>{
     async function getRestaurants(){
         const data = await fetch("https://www.swiggy.com/api/seo/getListing?lat=17.425938120298223&lng=78.39342287825744");
         const json = await data.json();
-        console.log(json);
         setAllRestaurants(json?.data?.success.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurants(json?.data?.success.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
     }
@@ -41,14 +40,15 @@ const Body=()=>{
         <div className="py-3 px-8 mx-32">
           <input  
             type="text" 
-            className="search-input" 
+            data-testid="search-input"
+            className="search-input border border-b-2 border-black-500 rounded-lg  " 
             placeholder="  search" 
             value={searchInput}
             onChange={(e)=>{
               setSearchInput(e.target.value);
             }}
             />
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-medium  py-1 px-5 border border-blue-200 rounded" onClick={
+          <button role="search-btn" className="bg-blue-500 hover:bg-blue-700 text-white font-medium mx-2 py-1 px-5 border border-blue-200 rounded" onClick={
             ()=>{
               const data= filterData(searchInput,allRestaurants);
               setFilteredRestaurants(data);
@@ -57,14 +57,14 @@ const Body=()=>{
           >Search</button>
         </div>
         <div className="ms-28 ">
-        <div className="flex flex-wrap content-center">
+        <div data-testid="reslist"  className="flex flex-wrap content-center">
              {
                (filteredRestaurants.length===0 && searchInput.length==0)? <Shimmer/> :(
                   (searchInput.length!=0 && filteredRestaurants.length===0)? <h1>No Restaurants with the given input</h1> :
-                   (filteredRestaurants.map(restaurant =>
+                   ( filteredRestaurants.map(restaurant =>
                   {
                     
-                     return( <Link to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id} >
+                     return( <Link  to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id} >
                                 <Restaurantcard  {...restaurant.info} />
                             </Link>
                      )
